@@ -1,0 +1,18 @@
+server:
+  port: ${SERVER_PORT:7171}
+
+spring:
+  application:
+    name: order-processing-system
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5435}/${DB_NAME:loomi_order_db}
+    username: ${DB_USERNAME:loomi_user}
+    password: ${DB_PASSWORD:loomi_pass}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: false
