@@ -2,6 +2,7 @@ package com.loomi.order_processing_system.adapters.out.entities;
 
 import java.math.BigDecimal;
 
+import com.loomi.order_processing_system.domain.products.Products;
 import com.loomi.order_processing_system.domain.products.ProductsTypeEnum;
 import com.loomi.order_processing_system.domain.products.ProductsTypeEnumConverter;
 
@@ -35,13 +36,26 @@ public class JpaProductsEntity {
     private BigDecimal price;
     
     @Column(name = "pro_stock_quantity", nullable = true)
-    private Integer stock_quantity;
+    private Integer stockQuantity;
     
     @Column(name = "pro_active", nullable = false)
     private Boolean active;
     
     @Column(name = "pro_metadata", nullable = true)
     private String metadata;
+    
+    public JpaProductsEntity() {
+    }
+    
+    public JpaProductsEntity(final Products products) {
+        this.id = products.getId();
+        this.name = products.getName();
+        this.type = products.getType();
+        this.price = products.getPrice();
+        this.stockQuantity = products.getStockQuantity();
+        this.active = products.getActive();
+        this.metadata = products.getMetadata();
+    }
     
     public Integer getId() {
         return this.id;
@@ -75,12 +89,12 @@ public class JpaProductsEntity {
         this.price = price;
     }
     
-    public Integer getStock_quantity() {
-        return this.stock_quantity;
+    public Integer getStockQuantity() {
+        return this.stockQuantity;
     }
     
-    public void setStock_quantity(final Integer stock_quantity) {
-        this.stock_quantity = stock_quantity;
+    public void setStockQuantity(final Integer stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
     
     public Boolean getActive() {

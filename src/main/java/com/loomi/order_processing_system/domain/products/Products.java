@@ -12,7 +12,7 @@ public class Products {
     
     private BigDecimal price;
     
-    private Integer stock_quantity;
+    private Integer stockQuantity;
     
     private Boolean active;
     
@@ -26,7 +26,7 @@ public class Products {
             final String name,
             final ProductsTypeEnum type,
             final BigDecimal price,
-            final Integer stock_quantity,
+            final Integer stockQuantity,
             final Boolean active,
             final String metadata) {
         
@@ -34,7 +34,7 @@ public class Products {
         this.name = name;
         this.type = type;
         this.price = price;
-        this.stock_quantity = stock_quantity;
+        this.stockQuantity = stockQuantity;
         this.active = active;
         this.metadata = metadata;
     }
@@ -71,12 +71,12 @@ public class Products {
         this.price = price;
     }
     
-    public Integer getStock_quantity() {
-        return this.stock_quantity;
+    public Integer getStockQuantity() {
+        return this.stockQuantity;
     }
     
-    public void setStock_quantity(final Integer stock_quantity) {
-        this.stock_quantity = stock_quantity;
+    public void setStockQuantity(final Integer stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
     
     public Boolean getActive() {
