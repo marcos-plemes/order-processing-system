@@ -8,3 +8,24 @@ databaseChangeLog:
             path: sqls/001-create-products-table.sql
             relativeToChangelogFile: true
             dbms: postgresql
+
+  - changeSet:
+      id: 002-create-orders-table
+      author: marcos-lemes
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: sqls/002-create-orders-table.sql
+            relativeToChangelogFile: true
+            dbms: postgresql
+
+  - changeSet:
+      id: 003-create-order_items-table
+      author: marcos-lemes
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: sqls/003-create-order_items-table.sql
+            relativeToChangelogFile: true
+            dbms: postgresql
+

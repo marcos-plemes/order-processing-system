@@ -1,5 +1,7 @@
 package com.loomi.order_processing_system.adapters.out.repositories;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -26,7 +28,22 @@ public class ProductsRepositoryImpl implements ProductsRepository {
                         entity.getName(),
                         entity.getType(),
                         entity.getPrice(),
-                        entity.getStock_quantity(),
+                        entity.getStockQuantity(),
+                        entity.getActive(),
+                        entity.getMetadata()
+                ));
+    }
+    
+    @Override
+    public Optional<Products> findById(final Integer id) {
+        return this.jpaProductsRepository
+                .findById(id)
+                .map(entity -> new Products(
+                        entity.getId(),
+                        entity.getName(),
+                        entity.getType(),
+                        entity.getPrice(),
+                        entity.getStockQuantity(),
                         entity.getActive(),
                         entity.getMetadata()
                 ));
