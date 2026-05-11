@@ -34,6 +34,21 @@ public class OrderItems {
         this.metadata = metadata;
     }
     
+    public OrderItems(
+            final Integer id,
+            final Orders order,
+            final Products product,
+            final Integer quantity,
+            final BigDecimal unitPrice,
+            final String metadata) {
+        this.id = id;
+        this.order = order;
+        this.product = product;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.metadata = metadata;
+    }
+    
     public Integer getId() {
         return this.id;
     }

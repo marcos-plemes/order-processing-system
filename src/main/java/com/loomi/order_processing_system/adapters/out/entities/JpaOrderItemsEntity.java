@@ -25,7 +25,7 @@ public class JpaOrderItemsEntity {
     @Column(name = "oit_id", nullable = false)
     private Integer id;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "oit_order_id", nullable = false)
     private JpaOrdersEntity order;
     
