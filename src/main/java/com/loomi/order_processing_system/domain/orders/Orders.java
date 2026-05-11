@@ -29,6 +29,24 @@ public class Orders {
     public Orders() {
     }
     
+    public Orders(
+            final Integer id,
+            final Integer customer,
+            final OrdersStatusEnum status,
+            final BigDecimal totalAmount,
+            final String failureReason,
+            final LocalDateTime createdAt,
+            final LocalDateTime updatedAt) {
+        
+        this.id = id;
+        this.customer = customer;
+        this.status = status;
+        this.totalAmount = totalAmount;
+        this.failureReason = failureReason;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+    
     public Orders(final CreateOrderRequest createOrderRequest) {
         this.customer = createOrderRequest.customerId();
         this.status = OrdersStatusEnum.PENDING;

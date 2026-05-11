@@ -4,20 +4,21 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 import com.loomi.order_processing_system.adapters.out.messaging.kafka.events.OrderCreatedEvent;
+import com.loomi.order_processing_system.enums.KafkaTopicEnum;
 
 @Component
-public class OrderCreatedProducer {
+public class OrderProducer {
     
     private final KafkaTemplate<String, Object> kafkaTemplate;
     
-    public OrderCreatedProducer(final KafkaTemplate<String, Object> kafkaTemplate) {
+    public OrderProducer(final KafkaTemplate<String, Object> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
     
-    public void publish(final OrderCreatedEvent event) {
+    public void publish(final KafkaTopicEnum topic, final OrderCreatedEvent event) {
         
         this.kafkaTemplate.send(
-                "order-created",
+                topic.getDescription(),
                 event.orderId().toString(),
                 event
                                );

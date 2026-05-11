@@ -1,5 +1,7 @@
 package com.loomi.order_processing_system.adapters.out.repositories;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
 import com.loomi.order_processing_system.adapters.out.entities.JpaOrdersEntity;
@@ -21,6 +23,25 @@ public class OrdersRepositoryImpl implements OrdersRepository {
         entity = this.jpaOrdersRepository.save(entity);
         order.setId(entity.getId());
         return order;
+    }
+    
+    @Override
+    public Optional<Orders> findById(final Integer id) {
+        return this.jpaOrdersRepository.findById(id)
+                                       .map(entity -> new Orders(
+                                               entity.getId(),
+                                               entity.getCustomer(),
+                                               entity.getStatus(),
+                                               entity.getTotalAmount(),
+                                               entity.getFailureReason(),
+                                               entity.getCreatedAt(),
+                                               entity.getUpdatedAt()
+                                       ));
+    }
+    
+    @Override
+    public void update(final Orders order) {
+        this.jpaOrdersRepository.save(new JpaOrdersEntity(order));
     }
     
 }
